@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Position</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees; let i = index" [ngClass]="{'even': i % 2 === 0, 'odd': i % 2 !== 0}">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.FirstName | capitalize }}</td>
+      <td>{{ employee.LastName | capitalize }}</td>
+      <td>{{ employee.Department }}</td>
+      <td>{{ employee.Salary | currency }}</td>
+      <td>{{ employee.Age > 40 ? 'Sr. Employee' : 'Jr. Employee' }}</td>
+      <td>
+        <button (click)="editEmployee(employee)">Edit</button>
+        <button (click)="deleteEmployee(employee.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
